@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do App | Karam</title>
+
+    <!-- Calling Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500&family=Ubuntu:wght@300;400&display=swap" rel="stylesheet">
+    
+    <!-- Calling CSS Files -->
+    <link rel="stylesheet" href="css/remixicon.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+</head>
+<body>
+    <!-- Start Page Container -->
+    <div class="container">
+        <!-- Start Page Header -->
+        <header class="page-header">
+            <h1 class="page-title">To Do List App</h1>
+        </header>
+        <!-- End Page Header -->
+
+        <!-- Start Page Mian -->
+        <main class="page-main">
+            <!-- Start Add Tasks Section -->
+            <section class="add-sec">
+                <!-- Section Top Info -->
+                <div class="sec-top">
+                    <h3 class="sec-title">My Tasks</h3>
+                    <button class="btn open-btn">
+                        <div class="add-span"><span class="ri-add-fill icon"></span> Add Task</div>
+                        <div class="close-span"><span class="ri-close-line icon"></span> Cancel</div>
+                    </button>
+                </div>
+
+                <!-- Section Form -->
+                <form class="form add-form">
+                    <!-- Task Title -->
+                    <div class="task-title">
+                        <label for="task-title">Task Title</label>
+                        <input type="text" class="inpt" name="task-title" id="task-title" placeholder="Type Your Task Here...">
+                    </div>
+                    <div class="task-info">
+                        <!-- Task Day -->
+                        <div class="task-day half-div">
+                            <label for="task-day">Day</label>
+                            <input type="date" class="inpt" name="task-day" id="task-day">
+                        </div>
+
+                        <!-- Task Time -->
+                        <div class="task-time half-div">
+                            <label for="task-time">Time</label>
+                            <input type="time" class="inpt" name="task-time" id="task-time">
+                        </div>
+                    </div>
+
+                    <button class="btn save-btn" id="save-btn">
+                        <span class="ri-add-fill icon"></span> Add Task
+                    </button>
+                </form>
+            </section>
+            <!-- End Add Tasks Section -->
+
+
+        </main>
+        <!-- End Page Main -->
+    </div>
+    <!-- End Page Container -->
+
+    <!-- Calling Js Files -->
+    <script src="js/main.js"></script>
+</body>
+</html>
