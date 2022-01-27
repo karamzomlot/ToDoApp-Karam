@@ -361,3 +361,26 @@ button, .btn{
     border-left: 3px solid #D9DFF8;
     color: #f03945;
 }
+
+/* -----------------------------------------------------------------
+    Style No Item Div
+--------------------------------------------------------------------*/
+.view-sec .no-item{
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.view-sec .no-item .image-div{
+    margin-bottom: 2.5rem;
+}
+
+.view-sec .no-item .image-div img{
+    width: 100%;
+    max-width: 300px;
+}
+
+.view-sec .no-item .title{
+    font-size: 1.8rem;
+    font-family: var(--HeadingFont);
+    color: var(--ButtonColor);
+}
