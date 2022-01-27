@@ -57,7 +57,7 @@ button, .btn{
 --------------------------------------------------------------------*/
 .page-header{
     width: 100%;
-    max-width: 700px;
+    max-width: 650px;
     margin: auto;
     margin-bottom: 3rem;
     text-align: center;
@@ -76,7 +76,7 @@ button, .btn{
 
 .page-main{
     width: 100%;
-    max-width: 700px;
+    max-width: 650px;
     margin: auto;
 }
 
@@ -156,6 +156,7 @@ button, .btn{
     height:0;
     overflow:hidden;
     transition:height .5s ease-out;
+    margin-bottom: 1.5rem;
 }
 
 .add-sec .add-form.open-form{
@@ -214,4 +215,149 @@ button, .btn{
 
 .add-sec .add-form .save-btn .icon{
     margin-right: 5px;
+}
+
+/* -----------------------------------------------------------------
+    Style View Section
+--------------------------------------------------------------------*/
+.view-sec .tasks-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.2rem;
+}
+
+.tasks-info .sec-title{
+    color: #8791b6;
+    letter-spacing: .5px;
+    font-size: 1.2rem;
+}
+
+.tasks-info .nums{
+    font-size: 1.2rem;
+    color: var(--ButtonColor);
+    font-weight: bold;
+}
+
+.tasks-info .nums .from{
+    display: inline-block;
+    margin: 0 5px;
+    font-weight: 500;
+    color: var(--HeadingColor);
+}
+
+
+/* -----------------------------------------------------------------
+    Style Tasks List Section
+--------------------------------------------------------------------*/
+.view-sec .tasks-list{
+    list-style-type: none;
+}
+
+.tasks-list .single-task{
+    display: flex;
+    background-color: #FFF;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 10px 0;
+    transition: background-color .5s ease, opacity .7s ease;
+}
+
+.single-task.done-task {
+    opacity: .4;
+}
+
+.tasks-list .single-task .done-btn {
+    flex-basis: 8%;
+    min-width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    outline: none;
+    background: none;
+    border-right: 3px solid #D9DFF8;
+    font-size: 1.35rem;
+    cursor: pointer;
+    color: #2643C4;
+    padding: 7px;
+    transition: color .5s ease, border-right .5s ease;
+}
+
+.single-task .not-done-icon {
+    display: block;
+}
+
+.single-task .done-icon {
+    display: none;
+}
+
+.single-task.done-task .not-done-icon {
+    display: none;
+}
+
+.single-task.done-task .done-icon {
+    display: block;
+}
+
+.tasks-list .single-task .task-details {
+    flex-basis: 85%;
+    padding: 1.3rem 10px 7px;
+    border-right: 3px solid #D9DFF8;
+}
+
+.single-task .task-details .task-name {
+    letter-spacing: 1px;
+    margin-bottom: 0.3rem;
+    transition: border-right .5s ease;
+}
+
+.single-task.done-task .task-details .task-name {
+    text-decoration: line-through;
+}
+
+.single-task .task-details .day-time{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: .9rem;
+}
+
+.single-task .task-details .day-time .day,
+.single-task .task-details .day-time .time{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.single-task .task-details .day-time .day{
+    margin-right: 0.6rem;
+}
+
+.single-task .task-details .day-time .icon{
+    color: var(--ButtonColor);
+    display: inline-block;
+    margin-right: 0.3rem;
+}
+
+.tasks-list .single-task .edit-btn, 
+.tasks-list .single-task .trash-btn {
+    flex-basis: 7%;
+    min-width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    outline: none;
+    background: none;
+    color: #4b74ce;
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding: 7px;
+    transition: color .5s ease;
+}
+
+.tasks-list .single-task .trash-btn {
+    border-left: 3px solid #D9DFF8;
+    color: #f03945;
 }

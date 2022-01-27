@@ -26,3 +26,15 @@ let getData = (e) => {
 }
 
 saveBtn.addEventListener('click', getData);
+
+
+// Done Task
+let singleTask = document.querySelector('.tasks-list .single-task');
+let doneTaskBtn = document.querySelector('.single-task .done-btn');
+
+let doneTask = () => {
+    singleTask.classList.toggle('done-task');
+}
+
+
+doneTaskBtn.addEventListener('click', doneTask)
