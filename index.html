@@ -37,9 +37,12 @@
                         <div class="add-span"><span class="ri-add-fill icon"></span> Add Task</div>
                         <div class="close-span"><span class="ri-close-line icon"></span> Cancel</div>
                     </button>
+                    <button class="btn close-btn">
+                        <div class="close-span"><span class="ri-close-line icon"></span> Cancel</div>
+                    </button>
                 </div>
 
-                <!-- Section Form -->
+                <!-- Start Add Form -->
                 <form class="form add-form">
                     <!-- Task Title -->
                     <div class="task-title">
@@ -64,6 +67,32 @@
                         <span class="ri-add-fill icon"></span> Add Task
                     </button>
                 </form>
+
+                <!-- Start Edit Form -->
+                <form class="form edit-form">
+                    <!-- Task Title -->
+                    <div class="task-title">
+                        <label for="task-title">Task Title</label>
+                        <input type="text" class="inpt" name="task-title" id="edit-title" placeholder="Type Your Task Here...">
+                    </div>
+                    <div class="task-info">
+                        <!-- Task Day -->
+                        <div class="task-day half-div">
+                            <label for="task-day">Day</label>
+                            <input type="date" class="inpt" name="task-day" id="edit-day">
+                        </div>
+
+                        <!-- Task Time -->
+                        <div class="task-time half-div">
+                            <label for="task-time">Time</label>
+                            <input type="time" class="inpt" name="task-time" id="edit-time">
+                        </div>
+                    </div>
+
+                    <button class="btn save-btn" id="edit-btn">
+                        <span class="ri-check-fill icon"></span> Edit Task
+                    </button>
+                </form>
             </section>
             <!-- End Add Tasks Section -->
 
@@ -80,8 +109,8 @@
                     <li class="single-task">
                         <!-- Done Button -->
                         <button class="done-btn">
-                            <span class="not-done-icon ri-checkbox-blank-circle-line"></span>
-                            <span class="done-icon ri-checkbox-circle-line"></span>
+                            <span class="not-done-icon ri-checkbox-blank-circle-line icon"></span>
+                            <span class="done-icon ri-checkbox-circle-line icon"></span>
                         </button>
                         <!-- Tasks Details -->
                         <div class="task-details">
@@ -98,11 +127,11 @@
                             </div>
                         </div>
                         <!-- Edit & Delete Button -->
-                        <button class="edit-btn">
-                            <span class="trash-icon ri-pencil-line"></span>
+                        <button class="edit-btn" data-id="edit">
+                            <span class="trash-icon ri-pencil-line icon"></span>
                         </button>
-                        <button class="trash-btn">
-                            <span class="trash-icon ri-delete-bin-6-line"></span>
+                        <button class="trash-btn" data-id="delete">
+                            <span class="trash-icon ri-delete-bin-6-line icon"></span>
                         </button>
                     </li>
                 </ul>

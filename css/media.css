@@ -1,15 +1,15 @@
 /* Responsiv Mobile Screens */
 @media (max-width: 575.98px) { 
-    .add-sec .add-form.open-form{
+    .add-sec .form.open-form{
         height: 306px;
     }
 
-    .add-sec .add-form .task-info{
+    .add-sec .form .task-info{
         display: flex;
         flex-direction: column;
     }
 
-    .add-sec .add-form .task-info .half-div{
+    .add-sec .form .task-info .half-div{
         width: 100%;
         flex-basis: 100%;
         margin: 0 0 1.1rem;

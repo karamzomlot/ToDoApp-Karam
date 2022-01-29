@@ -38,6 +38,9 @@
     --MainFont: 'Ubuntu', sans-serif;
 }
 
+html{
+    scroll-behavior: smooth;
+}
 .container{
     min-height: 100.07vh;
     background-color: var(--PraimaryColor);
@@ -53,6 +56,10 @@ input, input:focus{
 
 button, .btn{
     cursor: pointer;
+}
+
+.icon{
+    pointer-events: none;
 }
 
 
@@ -100,7 +107,8 @@ button, .btn{
     margin-top: 3px;
 }
 
-.add-sec .sec-top .open-btn{
+.add-sec .sec-top .open-btn,
+.add-sec .sec-top .close-btn{
     min-width: 127px;
     padding: .7rem 1.5rem;
     border-radius: .4rem;
@@ -113,12 +121,26 @@ button, .btn{
     transition: .5s;
 }
 
-.add-sec .sec-top .open-btn.close{
+.add-sec .sec-top .close-btn{
+    display: none;
+}
+
+.add-sec .sec-top.edit-opened .open-btn{
+    display: none;
+}
+
+.add-sec .sec-top.edit-opened .close-btn{
+    display: inline-block;
+}
+
+.add-sec .sec-top .open-btn.close,
+.add-sec .sec-top .close-btn{
     background-color: var(--DangerButton);
     box-shadow: var(--DangerShadow);
 }
 
-.add-sec .sec-top .open-btn.close:hover{
+.add-sec .sec-top .open-btn.close:hover,
+.add-sec .sec-top .close-btn:hover{
     background-color: var(--DangerButton);
     box-shadow: 0 0 25px 3px #ED5E6891;;
 }
@@ -136,7 +158,8 @@ button, .btn{
     display: none;
 }
 
-.add-sec .sec-top .open-btn.close .close-span{
+.add-sec .sec-top .open-btn.close .close-span,
+.add-sec .sec-top .close-btn .close-span{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -156,28 +179,28 @@ button, .btn{
     Style Form to Add Tasks
 --------------------------------------------------------------------*/
 
-.add-sec .add-form{
+.add-sec .form{
     height:0;
     overflow:hidden;
     transition:height .5s ease-out;
     margin-bottom: 1.5rem;
 }
 
-.add-sec .add-form.open-form{
+.add-sec .form.open-form{
     height: 220px;
 }
 
-.add-sec .add-form .task-title{
+.add-sec .form .task-title{
     margin-bottom: 1.1rem;
 }
 
-.add-sec .add-form label{
+.add-sec .form label{
     display: inline-block;
     margin-bottom: 5px;
     padding: 0 3px;
 }
 
-.add-sec .add-form .inpt{
+.add-sec .form .inpt{
     display: inline-block;
     width: 100%;
     min-height: 45px;
@@ -187,25 +210,25 @@ button, .btn{
     background-color: #FFF;
 }
 
-.add-sec .add-form .task-info{
+.add-sec .form .task-info{
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
 }
 
-.add-sec .add-form .half-div{
+.add-sec .form .half-div{
     flex-basis: 48%;
     width: 48%;
     min-width: 250px;
     margin-bottom: 1.1rem;
 }
 
-.add-sec .add-form .half-div:first-child{
+.add-sec .form .half-div:first-child{
     margin-right: 4%;
 }
 
-.add-sec .add-form .save-btn{
+.add-sec .form .save-btn{
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -217,7 +240,7 @@ button, .btn{
     border-radius: .4rem;
 }
 
-.add-sec .add-form .save-btn .icon{
+.add-sec .form .save-btn .icon{
     margin-right: 5px;
 }
 
@@ -388,3 +411,7 @@ button, .btn{
     font-family: var(--HeadingFont);
     color: var(--ButtonColor);
 }
+
+/* -----------------------------------------------------------------
+    Style Edit Form
+--------------------------------------------------------------------*/
