@@ -63,6 +63,8 @@ if (window.localStorage.getItem("tasks")){
 
 getTasksFromLocalStorage();
 
+setTasksInfo(tasks);
+
 // Add Task
 
 let taskTitle = document.getElementById("task-title");
@@ -149,6 +151,8 @@ function addTasksToPage(tasks) {
             </button>
         </li>`;
     });
+
+    setTasksInfo(tasks);
 }
 
 
@@ -180,6 +184,7 @@ tasksList.addEventListener("click", (e) => {
     if (e.target.dataset.id == "delete"){
         e.target.parentElement.remove();
         tasks = tasks.filter(task => task.id != e.target.parentElement.dataset.id);
+        setTasksInfo(tasks);
         addTaskToLocalStorage(tasks);
     }
     // Complete Task
@@ -192,6 +197,7 @@ tasksList.addEventListener("click", (e) => {
                 tasks[i].status == false ? (tasks[i].status = true) : (tasks[i].status = false);
             }
         }
+        setTasksInfo(tasks);
         addTaskToLocalStorage(tasks);
     }
     // Edit Task
@@ -221,3 +227,17 @@ tasksList.addEventListener("click", (e) => {
     }
 });
 
+
+// Set Tasks info
+
+function setTasksInfo(tasks){
+    let allTasksValue = document.querySelector(".tasks-info .value.all-tasks");
+    let compltedTasksValue = document.querySelector(".tasks-info .value.completed");
+
+    // Set All Tasks Value
+    allTasksValue.innerHTML = tasks.length;
+
+    // Set Completed Tasks Value
+    let completedTasks = tasks.filter(task => task.status == true);
+    compltedTasksValue.innerHTML = completedTasks.length;
+}
