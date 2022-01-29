@@ -54,6 +54,10 @@ function closeEditForm () {
 /* *************************************************************
     Add Task  
 ************************************************************* */
+// No Item Div
+let noItemDiv = document.querySelector('.view-sec .no-item');
+let tasksDiv = document.querySelector('.view-sec .tasks-div');
+
 // Array Of Tasks
 let tasks = [];
 
@@ -62,8 +66,8 @@ if (window.localStorage.getItem("tasks")){
 }
 
 getTasksFromLocalStorage();
-
 setTasksInfo(tasks);
+cehckDivs(tasks);
 
 // Add Task
 
@@ -153,6 +157,7 @@ function addTasksToPage(tasks) {
     });
 
     setTasksInfo(tasks);
+    cehckDivs(tasks);
 }
 
 
@@ -185,6 +190,7 @@ tasksList.addEventListener("click", (e) => {
         e.target.parentElement.remove();
         tasks = tasks.filter(task => task.id != e.target.parentElement.dataset.id);
         setTasksInfo(tasks);
+        cehckDivs(tasks);
         addTaskToLocalStorage(tasks);
     }
     // Complete Task
@@ -240,4 +246,18 @@ function setTasksInfo(tasks){
     // Set Completed Tasks Value
     let completedTasks = tasks.filter(task => task.status == true);
     compltedTasksValue.innerHTML = completedTasks.length;
+}
+
+
+// Determine Which Div Will Show To User
+function cehckDivs(tasks) {
+    // Set View Div To Uesr
+    if (tasks.length == 0){
+        noItemDiv.style.display = "block";
+        tasksDiv.style.display = "none";
+    }
+    else {
+        noItemDiv.style.display = "none";
+        tasksDiv.style.display = "block";
+    }
 }
