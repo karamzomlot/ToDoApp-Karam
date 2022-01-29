@@ -23,25 +23,33 @@ let tasksList = document.querySelector(".view-sec .tasks-list");
 
 tasksList.addEventListener("click", (e) => {
     if (e.target.dataset.id == "edit"){
-        // Close Add Form If It Open
-        if (addForm.classList.contains("open-form")){
-            addForm.classList.remove("open-form");
-            openBtn.classList.remove("close");
-        }
-
-        // Open Edit Form
-        editForm.classList.add("open-form");
-        secTop.classList.add("edit-opened");
-
-        // Scroll To Top Page To Edit Data
-        window.scrollTo({top: 0})
+        openEditForm();
     }
 });
 
+function openEditForm(){
+    // Close Add Form If It Open
+    if (addForm.classList.contains("open-form")){
+        addForm.classList.remove("open-form");
+        openBtn.classList.remove("close");
+    }
+
+    // Open Edit Form
+    editForm.classList.add("open-form");
+    secTop.classList.add("edit-opened");
+
+    // Scroll To Top Page To Edit Data
+    window.scrollTo({top: 0});
+}
+
 closeEditBtn.addEventListener("click", () => {
+    closeEditForm();
+});
+
+function closeEditForm () {
     editForm.classList.remove("open-form")
     secTop.classList.remove("edit-opened");
-});
+}
 
 /* *************************************************************
     Add Task  
@@ -112,9 +120,9 @@ function addTasksToPage(tasks) {
     // Add Tasks To List
     tasks.forEach(task => {
         tasksList.innerHTML += 
-        `<li class="single-task" id="${task.id}">
+        `<li class="single-task ${task.status == true? "completed" : " "}" data-id="${task.id}">
             <!-- Done Button -->
-            <button class="done-btn">
+            <button class="done-btn" data-id="status">
                 <span class="not-done-icon ri-checkbox-blank-circle-line icon"></span>
                 <span class="done-icon ri-checkbox-circle-line icon"></span>
             </button>
@@ -159,13 +167,57 @@ function getTasksFromLocalStorage(){
 }
 
 
-// Delete Task 
+// Delete & Complete & Edit Task 
+
+// Edit Form Inputs
+let editTitle = document.getElementById("edit-title");
+let editDay = document.getElementById("edit-day");
+let editTime = document.getElementById("edit-time");
+let editBtn = document.getElementById("edit-btn");
+
 tasksList.addEventListener("click", (e) => {
+    // Delete Task
     if (e.target.dataset.id == "delete"){
         e.target.parentElement.remove();
-        tasks = tasks.filter(task => task.id != e.target.parentElement.id);
+        tasks = tasks.filter(task => task.id != e.target.parentElement.dataset.id);
         addTaskToLocalStorage(tasks);
-        addTasksToPage(tasks);
     }
-})
+    // Complete Task
+    else if (e.target.dataset.id == "status"){
+        e.target.parentElement.classList.toggle('completed')
+        let thisId = e.target.parentElement.dataset.id;
+
+        for (let i = 0; i < tasks.length; i++){
+            if (tasks[i].id == thisId){
+                tasks[i].status == false ? (tasks[i].status = true) : (tasks[i].status = false);
+            }
+        }
+        addTaskToLocalStorage(tasks);
+    }
+    // Edit Task
+    else if (e.target.dataset.id == "edit"){
+        let thisTask = tasks.filter(task => task.id == e.target.parentElement.dataset.id);
+        
+        // Get Tasks Info From Arr
+        editTitle.value = thisTask[0].title;
+        editDay.value = thisTask[0].day;
+        editTime.value = thisTask[0].time;
+        // Open Edit Form
+        openEditForm();
+        
+        editBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            
+            thisTask[0].title = editTitle.value;
+            thisTask[0].day = editDay.value;
+            thisTask[0].time = editTime.value;
+
+            // Close Edit Form
+            closeEditForm();
+            // Resave Tasks
+            addTaskToLocalStorage(tasks);
+            addTasksToPage(tasks);
+        });
+    }
+});
 

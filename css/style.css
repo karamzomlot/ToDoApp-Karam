@@ -290,7 +290,7 @@ button, .btn{
     transition: background-color .5s ease, opacity .7s ease;
 }
 
-.single-task.done-task {
+.single-task.completed {
     opacity: .4;
 }
 
@@ -319,11 +319,11 @@ button, .btn{
     display: none;
 }
 
-.single-task.done-task .not-done-icon {
+.single-task.completed .not-done-icon {
     display: none;
 }
 
-.single-task.done-task .done-icon {
+.single-task.completed .done-icon {
     display: block;
 }
 
@@ -339,7 +339,7 @@ button, .btn{
     transition: border-right .5s ease;
 }
 
-.single-task.done-task .task-details .task-name {
+.single-task.completed .task-details .task-name {
     text-decoration: line-through;
 }
 
