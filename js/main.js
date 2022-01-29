@@ -159,5 +159,13 @@ function getTasksFromLocalStorage(){
 }
 
 
-// Done Task
+// Delete Task 
+tasksList.addEventListener("click", (e) => {
+    if (e.target.dataset.id == "delete"){
+        e.target.parentElement.remove();
+        tasks = tasks.filter(task => task.id != e.target.parentElement.id);
+        addTaskToLocalStorage(tasks);
+        addTasksToPage(tasks);
+    }
+})
 
